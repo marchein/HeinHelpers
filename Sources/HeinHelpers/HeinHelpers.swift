@@ -27,7 +27,7 @@ public struct HeinHelpers {
     // MARK: - showDialog
     public static func showMessage(title: String, message: String, on view: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Verstanden", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("CLOSE_BUTTON", bundle: .module, comment: "Close button"), style: .cancel, handler: nil))
         DispatchQueue.main.async {
             view.present(alert, animated: true)
         }
@@ -52,11 +52,11 @@ public struct HeinHelpers {
     
     public static func dateSuffix(date: Date, string: String) -> String {
         if Calendar.autoupdatingCurrent.isDateInYesterday(date) {
-            return "\(string) - (\(NSLocalizedString("YESTERAY", bundle: .module, comment: "Yesterday"))"
+            return "\(string) - (\(NSLocalizedString("YESTERDAY", bundle: .module, comment: "Yesterday")))"
         } else if Calendar.autoupdatingCurrent.isDateInToday(date) {
-            return "\(string) - (\(NSLocalizedString("TODAY", bundle: .module, comment: "Today"))"
+            return "\(string) - (\(NSLocalizedString("TODAY", bundle: .module, comment: "Today")))"
         } else if Calendar.autoupdatingCurrent.isDateInTomorrow(date) {
-            return  "\(string) - (\(NSLocalizedString("TOMORROW", bundle: .module, comment: "Tomorrow"))"
+            return  "\(string) - (\(NSLocalizedString("TOMORROW", bundle: .module, comment: "Tomorrow")))"
         } else {
             return string
         }
