@@ -52,11 +52,11 @@ public struct HeinHelpers {
     
     public static func dateSuffix(date: Date, string: String) -> String {
         if Calendar.autoupdatingCurrent.isDateInYesterday(date) {
-            return "\(string) - (\(NSLocalizedString("YESTERAY", comment: "Yesterday"))"
+            return "\(string) - (\(NSLocalizedString("YESTERAY", bundle: .module, comment: "Yesterday"))"
         } else if Calendar.autoupdatingCurrent.isDateInToday(date) {
-            return "\(string) - (\(NSLocalizedString("TODAY", comment: "Today"))"
+            return "\(string) - (\(NSLocalizedString("TODAY", bundle: .module, comment: "Today"))"
         } else if Calendar.autoupdatingCurrent.isDateInTomorrow(date) {
-            return  "\(string) - (\(NSLocalizedString("TOMORROW", comment: "Tomorrow"))"
+            return  "\(string) - (\(NSLocalizedString("TOMORROW", bundle: .module, comment: "Tomorrow"))"
         } else {
             return string
         }
