@@ -34,21 +34,6 @@ public struct HeinHelpers {
     }
     #endif
     
-    /*func getShareSheet(for meal: Meal?) -> UIActivityViewController? {
-     guard let meal = meal else {
-     fatalError("ERROR WHILE READING MEAL")
-     }
-     let mealTitle = meal.title
-     let mealStudentPrice = meal.getFormattedPrice(price: meal.priceStudent)!
-     let textToShare = "Es gibt \(mealTitle) für \(mealStudentPrice) in der Mensa!"
-     let objectsToShare = [textToShare] as [Any]
-     let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-     activityVC.excludedActivityTypes = [UIActivity.ActivityType.addToReadingList]
-     
-     return activityVC
-     }
-     */
-    
     public static func getReleaseTitle() -> String {
         if isSimulator() {
             return "Simulator"
@@ -61,18 +46,17 @@ public struct HeinHelpers {
     
     public static func getDayName(by date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "de_DE")
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: date)
     }
     
     public static func dateSuffix(date: Date, string: String) -> String {
         if Calendar.autoupdatingCurrent.isDateInYesterday(date) {
-            return "\(string) - (Gestern)"
+            return "\(string) - (\(NSLocalizedString("YESTERAY", comment: "Yesterday"))"
         } else if Calendar.autoupdatingCurrent.isDateInToday(date) {
-            return "\(string) - (Heute)"
+            return "\(string) - (\(NSLocalizedString("TODAY", comment: "Today"))"
         } else if Calendar.autoupdatingCurrent.isDateInTomorrow(date) {
-            return  "\(string) - (Morgen)"
+            return  "\(string) - (\(NSLocalizedString("TOMORROW", comment: "Tomorrow"))"
         } else {
             return string
         }
