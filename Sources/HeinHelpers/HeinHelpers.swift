@@ -35,7 +35,8 @@ public struct HeinHelpers {
     #endif
     
     public static func logMessage(_ message: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line, columnNumber: Int = #column) {
-            print("[DEBUG] \(fileName) - \(functionName) line \(lineNumber)[\(columnNumber)] - \(message)")
+            let fileNameWithoutPath = URL(fileURLWithPath: fileName).lastPathComponent
+            print("[DEBUG] \(fileNameWithoutPath) - \(functionName) line \(lineNumber)[\(columnNumber)] - \(message)")
         }
     
     public static func getReleaseTitle() -> String {
