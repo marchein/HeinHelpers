@@ -34,6 +34,10 @@ public struct HeinHelpers {
     }
     #endif
     
+    public static func logMessage(_ message: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line, columnNumber: Int = #column) {
+            print("[DEBUG] \(fileName) - \(functionName) line \(lineNumber)[\(columnNumber)] - \(message)")
+        }
+    
     public static func getReleaseTitle() -> String {
         if isSimulator() {
             return "Simulator"
