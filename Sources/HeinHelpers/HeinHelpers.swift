@@ -3,6 +3,10 @@ import Foundation
 import UIKit
 #endif
 
+#if canImport(StoreKit)
+import StoreKit
+#endif
+
 public struct HeinHelpers {
     //MARK:- Check for Beta Testers
     public static func isSimulatorOrTestFlight() -> Bool {
@@ -48,6 +52,7 @@ public struct HeinHelpers {
             return "App Store"
         }
     }
+
     
     public static func getDayName(by date: Date) -> String {
         let dateFormatter = DateFormatter()
